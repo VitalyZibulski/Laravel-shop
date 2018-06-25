@@ -15,10 +15,10 @@ class Cart
 	 */
 	public function __construct($prevCart)
 	{
-		if($prevCart !=null){
+		if($prevCart != null){
 			$this->items = $prevCart->items;
-			$this->totalQuantity= $prevCart->items;
-			$this->totalPrice = $prevCart->items;
+			$this->totalQuantity= $prevCart->totalQuantity;
+			$this->totalPrice = $prevCart->totalPrice;
 		}
 		else {
 			$this->items = [];
@@ -30,6 +30,7 @@ class Cart
 	public function addItem($id, $product)
 	{
 		$price = (int)str_replace("$","", $product->price);
+
 		//the item already exists
 		if(array_key_exists($id,$this->items)){
 			$productToAdd = $this->items[$id];
@@ -41,5 +42,6 @@ class Cart
 		$this->items[$id] = $productToAdd;
 		$this->totalQuantity++;
 		$this->totalPrice = $this->totalPrice + $price;
+
 	}
 }
