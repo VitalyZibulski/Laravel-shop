@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cart;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ProductsController extends Controller
 {
@@ -32,4 +33,16 @@ class ProductsController extends Controller
 
 		return redirect()->route('allProducts');
 	}
+
+	public function showCart()
+	{
+		$cart = Session::get('cart');
+
+		if($cart){
+			return view('cartproducts', ['cartItems' => $cart]);
+		} else {
+			return redirect()->route('allProducts');
+		}
+	}
+
 }
