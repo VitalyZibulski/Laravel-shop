@@ -22,7 +22,6 @@ class ProductsController extends Controller
     public function addProductToCart(Request $request, $id)
 	{
 		$prevCart = $request->session()->get('cart');
-		dump($prevCart);
 
 		$cart = new Cart($prevCart);
 
@@ -30,5 +29,7 @@ class ProductsController extends Controller
 
 		$cart->addItem($id,$product);
 		$request->session()->put('cart', $cart);
+
+		return redirect()->route('allProducts');
 	}
 }
