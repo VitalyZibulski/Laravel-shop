@@ -16,7 +16,7 @@
     $ cd laravel-shop
     $ npm install
 
-## Start & watch
+## Start
     
     $ php artisan:key:generate
     $ composer install
