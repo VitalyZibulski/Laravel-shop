@@ -20,3 +20,5 @@ Route::get('products', 'ProductsController@index')->name('allProducts');
 Route::get('product/addToCart/{id}','ProductsController@addProductToCart')->name('AddCartProduct');
 
 Route::get('cart','ProductsController@showCart')->name('cartproducts');
+
+Route::get('product/deleteItemFromCart/{id}','ProductsController@deleteItemFromCart')->name('deleteItemFromCart');
