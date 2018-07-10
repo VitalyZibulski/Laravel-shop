@@ -11,6 +11,7 @@
             </div>
             <div class="table-responsive cart_info">
                 <table class="table table-condensed">
+                    {{$userData->name}}
                     <thead>
                     <tr class="cart_menu">
                         <td class="image">Item</td>
