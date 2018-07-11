@@ -63,7 +63,6 @@ class ProductsController extends Controller
 
 		return redirect()->route('cartproducts');
 
-
 	}
 
 	public function menProducts(){
@@ -77,5 +76,13 @@ class ProductsController extends Controller
 
 		return view('womenProducts', compact('products'));
 	}
+
+	public function search(Request $request){
+		$searchText = $request->get('searchText');
+
+		$products = Product::where("name", "Like",$searchText."%" )->paginate(3);
+
+		return view('allproducts', compact('products'));
+		}
 
 }
