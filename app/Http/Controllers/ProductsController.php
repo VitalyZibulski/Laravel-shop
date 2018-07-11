@@ -66,4 +66,16 @@ class ProductsController extends Controller
 
 	}
 
+	public function menProducts(){
+		$products = Product::where('type','mens')->get();
+
+		return view('menProducts', compact('products'));
+	}
+
+	public function womenProducts(){
+		$products = Product::where('type','womens')->get();
+
+		return view('womenProducts', compact('products'));
+	}
+
 }

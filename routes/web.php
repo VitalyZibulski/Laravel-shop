@@ -25,3 +25,6 @@ Route::get('product/deleteItemFromCart/{id}','ProductsController@deleteItemFromC
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/products/men', 'ProductsController@menProducts')->name('menProducts');
+Route::get('/products/women', 'ProductsController@womenProducts')->name('womenProducts');
+
